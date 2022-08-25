@@ -7,18 +7,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="gulimall-coupon" />
+        <module name="renren-fast" />
         <module name="gulimall-order" />
         <module name="gulimall-ware" />
         <module name="gulimall-member" />
         <module name="gulimall-product" />
+        <module name="renren-generator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="gulimall-common" target="1.8" />
       <module name="gulimall-coupon" target="1.8" />
       <module name="gulimall-member" target="1.8" />
-      <module name="renren-fast" target="1.8" />
-      <module name="renren-generator" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
