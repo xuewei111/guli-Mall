@@ -61,7 +61,16 @@
         header-align="center"
         align="center"
         label="品牌logo地址"
-      ></el-table-column>
+      >
+        <template slot-scope="{ row }">
+          <!-- <el-image
+            style="width: 100%; height: 80%;"
+            :src="row.logo"
+            fit="fill"
+          ></el-image> -->
+          <img :src="row.logo" style="width: 100px; height: 80px;"/>
+        </template>
+      </el-table-column>
       <el-table-column
         prop="descript"
         header-align="center"
@@ -245,19 +254,19 @@ export default {
       })
     },
     updateBrandStatus(data) {
-      let {brandId,showStatus} = data
+      let { brandId, showStatus } = data
       // 发送修改请求
       this.$http({
-        url:this.$http.adornUrl("/product/brand/update"),
-        method:"post",
-        data:this.$http.adornData({brandId,showStatus},false)
-      }).then(({data}) => {
+        url: this.$http.adornUrl('/product/brand/update'),
+        method: 'post',
+        data: this.$http.adornData({ brandId, showStatus }, false),
+      }).then(({ data }) => {
         this.$message({
-          type:"success",
-          message:"状态更新成功"
+          type: 'success',
+          message: '状态更新成功',
         })
       })
-    }
+    },
   },
 }
 </script>
