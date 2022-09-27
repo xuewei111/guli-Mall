@@ -20,6 +20,21 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  *           2、配置Mybatis-Plus
  *              1.使用@MapperScan
  *              2.告诉Mybatis-Plus，sql映射文件位置
+ * 2.逻辑删除
+ *      1.配置全局的逻辑删除规则(省略)
+ *      2.配置逻辑删除的组件Bean (省略)
+ *      3.给bean加上逻辑删除注解@TableLogic
+ *
+ * 3.JSR303
+ *      1.给Bean添加效验注解:javax.validation.constraints,并定义自己的message提示
+ *      2.开启效验功能@Valid
+ *          效果:效验错误以后会有默认的响应
+ *      3.给效验的bean后紧跟一个BindingResult,就可以获取到效验的结果
+ * 4.统一的异常处理类
+ * @ControllerAdvice
+ *      1.编写异常处理类,使用@ControllerAdvice
+ *      2.使用@ExceptionHandler标注方法可以处理的异常
+ *
  */
 @SpringBootApplication
 @MapperScan("com.atguigu.gulimall.product.dao")
