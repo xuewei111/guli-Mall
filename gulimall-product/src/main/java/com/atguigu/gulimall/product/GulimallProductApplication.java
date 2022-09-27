@@ -30,6 +30,12 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  *      2.开启效验功能@Valid
  *          效果:效验错误以后会有默认的响应
  *      3.给效验的bean后紧跟一个BindingResult,就可以获取到效验的结果
+ *      4.分组效验 (多场景的复杂效验)
+ *          1.@NotBlank(message = "品牌名必须提交",groups = {AddGroup.class,UpdateGroup.class})
+ *          给效验注解标注什么情况需要进行效验
+ *          2.@Validated(value = AddGroup.class)
+ *          3.默认没有指定分组的效验注解@NotBlank,在分组效验情况@Validated({AddGroup.class})下不生效
+ *      5.自定义效验
  * 4.统一的异常处理类
  * @ControllerAdvice
  *      1.编写异常处理类,使用@ControllerAdvice
