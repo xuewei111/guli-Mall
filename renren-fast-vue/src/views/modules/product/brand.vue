@@ -257,7 +257,7 @@ export default {
       let { brandId, showStatus } = data
       // 发送修改请求
       this.$http({
-        url: this.$http.adornUrl('/product/brand/update'),
+        url: this.$http.adornUrl('/product/brand/update/status'),
         method: 'post',
         data: this.$http.adornData({ brandId, showStatus }, false),
       }).then(({ data }) => {
