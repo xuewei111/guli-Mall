@@ -26,17 +26,17 @@ import com.atguigu.common.utils.R;
  */
 @RestController
 @RequestMapping("product/attrgroup")
-public class AttrGroupController {
+public class  AttrGroupController {
     @Autowired
     private AttrGroupService attrGroupService;
 
     /**
      * 列表
      */
-    @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = attrGroupService.queryPage(params);
-
+    @RequestMapping("/list/{catelogId}")
+    public R list(@RequestParam Map<String, Object> params,@PathVariable Long catelogId){
+//        PageUtils page = attrGroupService.queryPage(params);
+        PageUtils page = attrGroupService.queryPage(params,catelogId);
         return R.ok().put("page", page);
     }
 
