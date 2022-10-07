@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.atguigu.gulimall.product.vo.AttrVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +31,14 @@ import com.atguigu.common.utils.R;
 public class AttrController {
     @Autowired
     private AttrService attrService;
+
+    @GetMapping("/base/list/{catelogId}")
+    public R baseAttrList(@RequestParam Map<String,Object> params,
+                          @PathVariable("catelogId") Long catelogId) {
+        PageUtils pageUtils = attrService.queryBaseAttrPage(params,catelogId);
+
+        return R.ok().put("page",pageUtils);
+    }
 
     /**
      * 列表
