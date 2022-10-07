@@ -79,14 +79,14 @@
       beforeUpload(file) {
         let _self = this;
         return new Promise((resolve, reject) => {
-          policy().then(response => {
-            console.log("响应的数据",response);
-            _self.dataObj.policy = response.policy;
-            _self.dataObj.signature = response.signature;
-            _self.dataObj.ossaccessKeyId = response.accessId;
-            _self.dataObj.key = response.dir +getUUID()+'_${filename}';
-            _self.dataObj.dir = response.dir;
-            _self.dataObj.host = response.host;
+          policy().then(({data}) => {
+            console.log("响应的数据",data);
+            _self.dataObj.policy = data.policy;
+            _self.dataObj.signature = data.signature;
+            _self.dataObj.ossaccessKeyId = data.accessId;
+            _self.dataObj.key = data.dir +getUUID()+'_${filename}';
+            _self.dataObj.dir = data.dir;
+            _self.dataObj.host = data.host;
             console.log("响应的数据222。。。",_self.dataObj);
             resolve(true)
           }).catch(err => {

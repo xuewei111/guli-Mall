@@ -39,9 +39,7 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
         QueryWrapper<AttrGroupEntity> wrapper = new QueryWrapper<AttrGroupEntity>()
                 .eq("catelog_id",catelogId);
         if(StringUtils.isNotEmpty(key)) {
-            wrapper.and(item -> {
-                item.eq("attr_group_id",key).or().like("attr_group_name",key);
-            });
+            wrapper.and(item -> item.eq("attr_group_id",key).or().like("attr_group_name",key));
         }
 
         IPage<AttrGroupEntity> page = this.page(new Query<AttrGroupEntity>().getPage(params),
